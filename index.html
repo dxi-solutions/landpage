@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DXI Solutions — Consultoria em Tecnologia e Transformação Digital</title>
+    <meta name="description" content="DXI Solutions — Consultoria em tecnologia e transformação digital, estratégia e inovação para impulsionar o seu negócio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #050811;
+            --blue: #2563eb;
+            --cyan: #22d3ee;
+            --magenta: #d946ef;
+            --pink: #ec4899;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(217, 70, 239, 0.12) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: white;
+            position: relative;
+        }
+
+        .logo-text span {
+            background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: -4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav ul a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+
+        .hero-image {
+            display: block;
+            max-width: 720px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 40px;
+            border-radius: 20px;
+            box-shadow:
+                0 20px 60px rgba(37, 99, 235, 0.25),
+                0 10px 40px rgba(217, 70, 239, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--cyan);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(90deg, var(--blue) 0%, var(--magenta) 50%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(217, 70, 239, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34, 211, 238, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-card h2 {
+            font-size: clamp(24px, 3.5vw, 36px);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-size: 17px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .contact-info a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--text);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 0 60px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .contact-card {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <div class="logo-mark">D</div>
+                    <div>
+                        DXI
+                        <span>SOLUTIONS</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <img src="dxi.jpeg" alt="DXI Solutions" class="hero-image">
+                <div class="badge">CONSULTORIA EM TECNOLOGIA E TRANSFORMAÇÃO DIGITAL</div>
+                <h1>Soluções inteligentes<br>para o seu <span class="gradient">próximo passo</span></h1>
+                <p>A DXI Solutions é uma consultoria dedicada a transformar desafios em oportunidades, conectando estratégia, tecnologia e inovação para impulsionar o crescimento do seu negócio.</p>
+                <div class="cta-group">
+                    <a href="#contato" class="btn btn-primary">Fale Conosco</a>
+                    <a href="#servicos" class="btn btn-secondary">Nossos Serviços</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container">
+                <div class="section-title">
+                    <h2>O que fazemos</h2>
+                    <p>Oferecemos consultoria estratégica e soluções sob medida para acelerar a evolução da sua empresa.</p>
+                </div>
+                <div class="services">
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Transformação Digital</h3>
+                        <p>Modernizamos processos, sistemas e cultura para preparar sua empresa para o futuro digital.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Estratégia &amp; Inovação</h3>
+                        <p>Desenvolvemos planos estratégicos personalizados que geram resultados sustentáveis e competitivos.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Dados &amp; Analytics</h3>
+                        <p>Transformamos dados em decisões inteligentes com soluções de BI, analytics e inteligência artificial.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Tecnologia &amp; Arquitetura</h3>
+                        <p>Desenhamos arquiteturas robustas e escaláveis, alinhadas aos objetivos de negócio da sua organização.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>Gestão de Projetos</h3>
+                        <p>Conduzimos iniciativas complexas com metodologias ágeis, garantindo entregas de alto impacto.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>Consultoria Executiva</h3>
+                        <p>Apoiamos lideranças na tomada de decisões críticas com visão estratégica e experiência de mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Sobre a DXI Solutions</h2>
+                    <p>Uma nova consultoria, nascida em 2026.</p>
+                </div>
+                <div class="about">
+                    <p>Somos uma empresa recém-criada, fundada com o propósito de conectar pessoas, ideias e tecnologia. Acreditamos que a verdadeira transformação acontece quando estratégia e execução caminham juntas.</p>
+                    <p>Como uma consultoria nova, trazemos um olhar fresco, proximidade real com cada cliente e o compromisso de construir parcerias duradouras — sem processos engessados ou promessas vazias.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">Novo</div>
+                            <div class="stat-label">Olhar Sobre o Mercado</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">1:1</div>
+                            <div class="stat-label">Atenção a Cada Cliente</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">2026</div>
+                            <div class="stat-label">Ano de Fundação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Vamos conversar?</h2>
+                    <p>Pronto para dar o próximo passo? Entre em contato e descubra como a DXI Solutions pode apoiar a sua jornada.</p>
+                    <a href="mailto:contato@dxisolutions.com.br" class="btn btn-primary">Entrar em Contato</a>
+                    <div class="contact-info">
+                        <a href="mailto:contato@dxisolutions.com.br">contato@dxisolutions.com.br</a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DXI Solutions. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
